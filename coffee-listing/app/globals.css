@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@theme {
+	--font-dm-sans: var(--font-dm-sans);
+	--color-light: #fef7ee;
+	--color-yellow: #f6c768;
+	--color-grey-100: #6f757c;
+	--color-shark: #1b1d1f;
+	--color-green: #bee3cc;
+	--color-cocoa: #302522;
+	--color-smoke: #111315;
+	--color-grey: #4d5562;
+	--color-red: #ed735d;
+}
+
+@layer base {
+	body {
+		@apply font-dm-sans bg-smoke text-light;
+	}
+}
+@layer components {
+	.heading {
+		@apply text-[2rem] font-bold;
+	}
+	p.body {
+		@apply text-base font-medium;
+	}
+	.label {
+		@apply text-sm;
+	}
+	.small {
+		@apply text-[10px] font-normal;
+	}
+	.price {
+		@apply text-xs font-semibold;
+	}
+	.btn {
+		@apply cursor-pointer font-semibold text-sm px-2.5 py-1.5 rounded-md;
+	}
+}
