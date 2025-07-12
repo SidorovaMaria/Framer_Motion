@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+	font-family: "Modern Negra";
+	src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+}
+
+@import "tailwindcss";
+
+:root {
+	--background: #ffffff;
+	--foreground: #171717;
+}
+
+@theme inline {
+	/* --color-background: var(--background); */
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+	--font-modern: "Modern Negra", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+}
+html {
+	scroll-snap-type: y mandatory;
+}
+@utility scroll-snap-align-start {
+	scroll-snap-align: start;
+}
+@utility font-special {
+	font-family: "Azeret Mono", monospace;
+}
+@utility will-change-opacity {
+	will-change: transform, opacity;
+}
+@utility bigText {
+	font-size: 5vw;
+}
+@utility transform-origin-top {
+	transform-origin: top;
+}
+@utility clip-path-vignette {
+	clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+}
+
+@utility transition-height {
+	transition: height 0.3s;
+}
+@utility transition-stroke {
+	transition: stroke 0.5s;
+}
+
+@keyframes slider {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+@utility animation-slider {
+	animation: slider 12s linear infinite;
+}
