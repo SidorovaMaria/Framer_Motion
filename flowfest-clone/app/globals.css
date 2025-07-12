@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-light: #f3ecd2;
+	--color-dark: #121212;
+	--color-white: white;
+	--color-mango: #f3a20f;
+	--color-yellow: #f0bb0d;
+	--color-black: black;
+	--color-orange: #f97028;
+	--color-pink: #f489a3;
+	--color-light-plus: #fffefb;
+	--font-quicksand: var(--font-quicksand);
+}
+:root {
+	--animation-default: 0.5s cubic-bezier(0.625, 0.05, 0, 1);
+}
+
+@layer base {
+	body {
+		@apply bg-light text-dark font-quicksand font-medium leading-[1.3];
+		-webkit-font-smoothing: antialiased;
+	}
+	main {
+		@apply relative top-20 md:top-14;
+	}
+	.container {
+		@apply max-w-[1440px] px-4 md:px-6 lg:px-10 mx-auto;
+	}
+	.btn {
+		flex: 0 auto;
+		@apply cursor-pointer border border-dark bg-pink text-dark rounded-[10em] flex items-center justify-center px-4 py-2 text-xs font-bold relative shadow-[0_0.25em_0_0_rgba(0,0,0,0.15)];
+	}
+	.btn:hover {
+		transform: translateY(0.25em) rotate(0.001deg);
+		box-shadow: 0em 0em 0em 0em rgba(0, 0, 0, 0.5);
+	}
+}
+
+@layer components {
+	.underline-link {
+		@apply relative tracking-[-0.01em] text-dark cursor-pointer text-sm font-bold leading-[1.5];
+	}
+	.underline-link::before {
+		@apply absolute left-0 bottom-0 w-full h-[0.125em] bg-dark rounded-[0.125em];
+		content: "";
+		bottom: 0;
+		transition: transform var(--animation-default);
+		transform-origin: right;
+		transform: scaleX(0) rotate(0.001deg);
+	}
+	.underline-link:hover::before {
+		transform-origin: left;
+		transform: scaleX(1) rotate(0.001deg);
+	}
+}
